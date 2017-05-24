@@ -1,0 +1,31 @@
+<div class="employees">
+  <%=form_tag employees_path, method: :get do |f| %>
+    <%= select_tag('pay_period', options_from_collection_for_select(@pay_periods, "pay_period", "pay_period", params[:pay_period])) %>
+    <%=submit_tag('search')  %>
+  <% end %>
+  <%= link_to "import", new_employee_path, class: "import" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>pay period</th>
+        <th>gross income</th>
+        <th>income tax</th>
+        <th>net income</th>
+        <th>super</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @employees.each do |e| %>
+      <tr>
+        <td><%=e.name %></td>
+        <td><%=e.pay_period %></td>
+        <td><%=e.gross_income %></td>
+        <td><%=e.income_tax %></td>
+        <td><%=e.net_income %></td>
+        <td><%=e.super_res %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

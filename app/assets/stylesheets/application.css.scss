@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+.container{
+  width: 600px;
+  margin: 10px auto;  
+}
+
+.table{
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+
+  thead>tr>th{
+    border: 1px solid #c7c2c2;
+    background: gray;
+  }
+}
+
+.employees{
+  position: relative;
+  
+  .import{
+    position: absolute;
+    top: 0px;
+    right: 0px; 
+  }
+}

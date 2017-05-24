@@ -14,17 +14,17 @@
 ActiveRecord::Schema.define(version: 20170523152803) do
 
   create_table "employees", force: :cascade do |t|
-    t.string   "first_name",                                 null: false
-    t.string   "last_name",                                  null: false
-    t.integer  "annual_salary"
-    t.decimal  "super_rate",         precision: 8, scale: 2
-    t.string   "payment_start_date"
+    t.string   "first_name",                                          null: false
+    t.string   "last_name",                                           null: false
+    t.integer  "annual_salary",                                       null: false
+    t.decimal  "super_rate",    precision: 8, scale: 2, default: 0.0
+    t.string   "pay_period",                                          null: false
     t.integer  "gross_income"
     t.integer  "income_tax"
     t.integer  "net_income"
     t.integer  "super_res"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
   end
 
 end

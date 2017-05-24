@@ -1,0 +1,7 @@
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-info" %>
+<% end %>
+<%= form_for(@employee, :multipart => true, class: "import") do |f| %>
+  <%= f.file_field :file, accept: '.csv'%>
+  <%= f.submit :submit %>
+<% end %>
