@@ -1,12 +1,12 @@
 Employee monthly payslip
 
-##environment
+## environment
 
 ruby 2.2.1p85
 bundler version 1.10.6
 sqlite3 1.3.13
 
-##run application
+## run application
 
 - bundle install
 - rake db:migrate
