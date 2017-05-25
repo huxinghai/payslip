@@ -46,7 +46,7 @@ class Employee < ActiveRecord::Base
         data = {
           first_name: row[0].strip, 
           last_name: row[1].strip, 
-          annual_salary: row[2],
+          annual_salary: row[2].strip,
           super_rate: row[3],
           pay_period: row[4]
         }
