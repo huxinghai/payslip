@@ -30,10 +30,12 @@ class Employee < ActiveRecord::Base
 
   private
   def calculation_rate
-    self.gross_income = (annual_salary / 12).round
-    self.income_tax = rate_level
-    self.net_income = gross_income - income_tax
-    self.super_res = (gross_income * super_rate).round
+    if annual_salary.present?
+      self.gross_income = (annual_salary / 12).round
+      self.income_tax = rate_level
+      self.net_income = gross_income - income_tax
+      self.super_res = (gross_income * super_rate).round
+    end
   end
 
   class << self
