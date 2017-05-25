@@ -3,7 +3,6 @@ class Employee < ActiveRecord::Base
 
   validates :first_name, :last_name, :annual_salary, :super_rate, :pay_period, presence: true
   validates :annual_salary, numericality: {only_integer: true, greater_than: 0}
-  # validates :payment_start_date, numericality: {only_integer: true, greater_than: 0}
 
   before_validation(on: :create) do 
     calculation_rate
@@ -55,7 +54,6 @@ class Employee < ActiveRecord::Base
     end
   end
 
-  private 
 end
 
 # Taxable income  Tax on this income
