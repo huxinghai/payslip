@@ -13,14 +13,6 @@ class Employee < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  private
-  def calculation_rate
-    self.gross_income = (annual_salary / 12).round
-    self.income_tax = rate_level.round
-    self.net_income = gross_income - income_tax
-    self.super_res = (gross_income * super_rate).round
-  end
-
   def rate_level
     tax = case annual_salary
     when 0..18200
@@ -34,7 +26,15 @@ class Employee < ActiveRecord::Base
     when 180001..Float::INFINITY
       (54547+(annual_salary-180000)*0.45)
     end
-    tax.zero? ? 0 : tax/12
+    tax.zero? ? 0 : (tax/12).round
+  end
+
+  private
+  def calculation_rate
+    self.gross_income = (annual_salary / 12).round
+    self.income_tax = rate_level
+    self.net_income = gross_income - income_tax
+    self.super_res = (gross_income * super_rate).round
   end
 
   class << self
